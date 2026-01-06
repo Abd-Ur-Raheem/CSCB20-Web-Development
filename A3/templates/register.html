@@ -1,0 +1,78 @@
+{% extends "template.html" %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="whole">
+    <div id="register-type" class="login-box">
+        <div class="login-header">
+            <header>Become a member!</header>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="input-submit">
+            <button class="submit-btn" id="student-register_btn" onclick="register_as('student')"></button>
+            <label for="student-register_btn">Register as student</label>
+        </div>
+        <div class="input-submit">
+            <button class="submit-btn" id="instructor-register_btn" onclick="register_as('instructor')"></button>
+            <label for="instructor-register_btn">Register as instructor</label>
+        </div>
+    </div>
+    <form id="student-register" style="display: none;" action="{{ url_for('register') }}" method="POST" class="login-box">
+        <div class="login-header">
+            <header>Become a member!</header>
+        </div>
+        <div class="input-box">
+            <input type="text" name="username" class="input-field" placeholder="Student Username" autocomplete="off" required>
+        </div>
+        <div class="input-box">
+            <input type="password" name="password" class="input-field" placeholder="Password" autocomplete="off" required>
+        </div>
+        <input type="hidden" name="type" value="student">
+        <p>*Must be at least 8 characters</p>
+        <div class="input-submit">
+            <button class="submit-btn" id="s-submit" type="submit"></button>
+            <label for="s-submit">Submit</label>
+        </div>
+    </form>
+    <form id="instructor-register" style="display: none;" action="{{ url_for('register') }}" method="POST" class="login-box">
+        <div class="login-header">
+            <header>Become a member!</header>
+        </div>
+        <div class="input-box">
+            <input type="text" name="username" class="input-field" placeholder="Instructor Username" autocomplete="off" required>
+        </div>
+        <div class="input-box">
+            <input type="password" name="password" class="input-field" placeholder="Password" autocomplete="off" required>
+        </div>
+        <input type="hidden" name="type" value="instructor">
+        <p>*Must be at least 8 characters</p>
+        <div class="input-submit">
+            <button class="submit-btn" id="i-submit" type="submit"></button>
+            <label for="i-submit">Submit</label>
+        </div>
+    </form>
+</div>
+<script>
+    function register_as(type) {
+        if (type == 'student') {
+            document.getElementById("student-register").style.display = "block";
+            document.getElementById("instructor-register").style.display = "none";
+            document.getElementById("register-type").style.display = "none";
+        }
+        if (type == 'instructor') {
+            document.getElementById("instructor-register").style.display = "block";
+            document.getElementById("student-register").style.display = "none";
+            document.getElementById("register-type").style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

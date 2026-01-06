@@ -1,0 +1,56 @@
+{% extends "template.html" %}
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/anon.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="anon-page">
+    <div class="main">
+        <div class="message">
+            <h1>Submit Anonymous Feedback</h1>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <p>Please provide your feedback about the course. Your identity will remain anonymous.</p>
+        </div>
+        <form class="feedback-box" method="POST">
+            <div class="form-group">
+                <label for="registered">Select Instructor</label>
+                <select id="registered" name="registered" required>
+                    <option value="">-- Select an Instructor --</option>
+                    {% for instructor in instructors %}
+                        <option value="{{ instructor.id }}">{{ instructor.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="like_teaching">What do you like about the instructor's teaching?</label>
+                <textarea id="like_teaching" name="like_teaching" placeholder="Enter your response" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="improve_teaching">What do you recommend the instructor do to improve their teaching?</label>
+                <textarea id="improve_teaching" name="improve_teaching" placeholder="Enter your response" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="like_labs">What do you like about the labs?</label>
+                <textarea id="like_labs" name="like_labs" placeholder="Enter your response" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="improve_labs">What do you recommend the lab instructors do to improve their lab teaching?</label>
+                <textarea id="improve_labs" name="improve_labs" placeholder="Enter your response" required></textarea>
+            </div>
+            
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </div>
+</div>
+{% endblock %}
+

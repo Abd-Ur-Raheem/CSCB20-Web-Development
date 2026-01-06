@@ -1,0 +1,61 @@
+{% extends "template.html" %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="remarks-page">
+    <div class="main">
+        <h1>Remark Requests</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% if remark_requests %}
+            <table class="remarks-table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Assignment Name</th>
+                        <th>Reason for Request</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for request in remark_requests %}
+                        <tr>
+                            <td>{{ request.student.name }}</td>
+                            <td>{{ request.assignment_name }}</td>
+                            <td>{{ request.remark_request }}</td>
+                            <td>{{ request.remark_status }}</td>
+                            <td>
+                                {% if request.remark_status == 'Pending' %}
+                                    <form method="POST" style="display: inline;">
+                                        <input type="hidden" name="mark_id" value="{{ request.id }}">
+                                        <input type="hidden" name="action" value="approve">
+                                        <button type="submit" class="approve-btn">Approve</button>
+                                    </form>
+                                    <form method="POST" style="display: inline;">
+                                        <input type="hidden" name="mark_id" value="{{ request.id }}">
+                                        <input type="hidden" name="action" value="reject">
+                                        <button type="submit" class="reject-btn">Reject</button>
+                                    </form>
+                                {% else %}
+                                    <span>{{ request.remark_status }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No remark requests available.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

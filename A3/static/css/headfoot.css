@@ -1,0 +1,127 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    
+}
+
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.contents ul{
+    list-style-type: none;
+    background-color: rgb(84, 41, 119);
+    padding: 0px;
+    margin-left: 30px;
+    overflow: hidden;
+    display: flex;
+    height: 80px;
+}
+
+.contents a{
+    color: white;
+    font-size: 30;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    padding: 15px;
+    padding-top: 25px;
+    display: flex;
+    text-align: center;
+    transition: 0.3s ease;
+}
+.contents a:hover{
+    color: rgb(167, 96, 185);
+    transition: 0.3s ease;
+}
+.contents li:hover{
+    background-color: rgb(37, 37, 37);
+    border-bottom: 10px solid rgb(209, 154, 241);
+    transition: 0.3s ease;
+}
+
+.contents li{
+    float: left;
+}
+
+.contents{
+    position: sticky;
+    top: 0;
+}
+
+.icon{
+    float: left;
+    padding-right: 15px;
+    padding-left: 10px;
+    font-size: medium;
+    color: rgb(34, 34, 109);
+    background-color: rgb(216, 214, 214);
+    padding-bottom: 12px;
+}
+
+
+.footer-section{
+    background-color: #212329;
+    margin-top: 10%;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.footer-title{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    background-color: none;
+    
+}
+
+.footer h1{
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.b20{
+    font-weight: bolder;
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.name{
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.footer{
+    
+    width: 36%;
+    height: 40vhs;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    row-gap: 0px;
+    color: rgb(191, 146, 233);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.footer a{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    background-color: none;
+    width: max-content;
+}
+
+.footer a:hover{
+    padding: 2%;
+    background-color: rgb(102, 51, 143);
+    transition: 0.3s ease;
+    border: none;
+    border-radius: 25px;
+}

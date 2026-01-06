@@ -1,0 +1,118 @@
+{% extends "template.html" %}
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/assignments.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="assignments-page">
+    <div class="intro">
+        <h1>Lecture Notes</h1>
+    </div>
+
+
+    <div class="body-syllabus">
+        <div class="row">
+            <div class="box">
+                <div class="title">
+                    <h2>Week 1</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>A quick speed-refresher of Python. We go over variables, functions, string methods, 
+                        lists, loops, and basic I/O. The material covered today will be especially relevant to those who have not taken one of A08, A48, or A20</p>
+                    <button onclick="location.href='static/docs/Week 1 - Relational Algebra.pdf';">Lecture Notes</button>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="title">
+                    <h2>Week 2</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>Relational algebra. In this tutorial,
+                         we go over relational algebra and writing relational algebra to perform queries. We also introduce SQLite and basic SQL concepts.
+                    </p>
+                    <button onclick="location.href='static/docs/Week 2 -  RA and Introduction to SQL.pdf';">Lecture Notes</button>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="box">
+                <div class="title">
+                    <h2>Week 3</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>For this week, we will be extracting actual data out of databases so you will be required
+                        to have SQLite in order to complete the lab. </p>
+                    <button onclick="location.href='static/docs/Week 3 -  SQL (1).pdf';">Lecture Notes</button>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+        <div class="row">
+            <div class="box">
+                <div class="title">
+                    <h2>Week 4</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>This week is dedicated to SQL case, subqueries, intro to webdev, frontend/backend and html</p>
+                    <button onclick="location.href='static/docs/Week 3 -  SQL (1).pdf';">Lecture Notes</button>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="title">
+                    <h2>Week 5</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>This week is a full introduction to webdevelopement. We will learn about servers, webpages, browsers and frameworks
+                    </p>
+                    <p>We will also be gettin started with HTML and CSS and creating our own webpages!</p>
+                    <button onclick="location.href='static/docs/Week 5 - Introduction to Web Development.pdf';">Lecture Notes</button>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="box">
+                <div class="title">
+                    <h2>Week 6</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>This week we have an online lecture since we have our midterm on lecture day. </p>
+                    <p>We will go more in depth with HTML, CSS and even touch on some Javascript. We will also learn some css styling and css grid/flexbox</p>
+                    <button onclick="location.href='static/docs/Week 6 - HTML and CSS (1).pdf';">Lecture Notes</button>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

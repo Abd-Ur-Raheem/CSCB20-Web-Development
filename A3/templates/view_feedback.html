@@ -1,0 +1,51 @@
+{% extends "template.html" %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="feedback-page">
+    <div class="main">
+        <h1>Anonymous Feedback for {{ current_user.name }}</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% if feedbacks %}
+            <table class="feedback-table">
+                <thead>
+                    <tr>
+                        <th>Feedback</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for feedback in feedbacks %}
+                        <tr>
+                            <td>
+                                {% for line in feedback.content.split('\n') %}
+                                    <p>{{ line }}</p>
+                                {% endfor %}
+                            </td>
+                            <td>{{ 'Reviewed' if feedback.reviewed else 'Open' }}</td>
+                            <td>
+                                <form method="POST">
+                                    <input type="hidden" name="feedback_id" value="{{ feedback.id }}">
+                                    <button type="submit">{{ 'Mark as Open' if feedback.reviewed else 'Mark as Reviewed' }}</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No feedback available for {{ current_user.name }}.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

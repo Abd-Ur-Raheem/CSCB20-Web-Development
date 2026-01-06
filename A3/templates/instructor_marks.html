@@ -1,0 +1,156 @@
+{% extends "template.html" %}
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/s_marks.css') }}">
+<style>
+    .mark-entry-form {
+        margin: 20px 25%;
+        padding: 15px;
+        background: #f9f9f9;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+    .mark-entry-form select,
+    .mark-entry-form input {
+        padding: 5px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .mark-entry-form button {
+        background: #9030f0;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .mark-entry-form button:hover {
+        background: #7a26d1;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="instructor-marks-page">
+    <h1 class="h">Welcome instructor {{ instructor_name }}, here are all the grades of your class:</h1>
+    
+    <!-- Display flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Form to enter marks -->
+    <div class="mark-entry-form">
+        <h3>Enter Student Marks</h3>
+        <form method="POST" action="{{ url_for('enter_mark') }}">
+            <select name="student_id" required>
+                <option value="">Select Student</option>
+                {% for student in students %}
+                    <option value="{{ student.id }}">{{ student.name }}</option>
+                {% endfor %}
+            </select>
+            <select name="assignment_name" required>
+                <option value="">Select Assignment/Exam</option>
+                <option value="A1">Assignment 1</option>
+                <option value="A2">Assignment 2</option>
+                <option value="A3">Assignment 3</option>
+                <option value="Week 1">Week 1 Tutorial</option>
+                <option value="Week 2">Week 2 Tutorial</option>
+                <option value="Week 3">Week 3 Tutorial</option>
+                <option value="Week 4">Week 4 Tutorial</option>
+                <option value="Week 5">Week 5 Tutorial</option>
+                <option value="Midterm">Midterm</option>
+                <option value="Final Exam">Final Exam</option>
+            </select>
+            <input type="number" name="grade" placeholder="Enter Grade (0-100)" min="0" max="100" required>
+            <button type="submit">Submit Mark</button>
+        </form>
+    </div>
+
+    <div class="box">
+        <div class="mark-type"><h3>Assignments</h3></div>
+        <table class="assignment-table">
+            <thead>
+                <tr>
+                    <th>Assignment</th>
+                    <th>Student</th>
+                    <th>Due Date</th>
+                    <th>Grade</th>
+                    <th>Remark Request</th>
+                    <th>Remark Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mark in marks if 'A' in mark.assignment_name %}
+                <tr>
+                    <td>{{ mark.assignment_name }}</td>
+                    <td>{{ mark.student.name }}</td>
+                    <td>{{ mark.due_date }}</td>
+                    <td>{{ mark.grade if mark.grade else 'Not graded' }}/100</td>
+                    <td>{{ mark.remark_request if mark.remark_request else 'None' }}</td>
+                    <td>{{ mark.remark_status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="tut-box">
+            <div class="mark-type"><h3>Tutorial Work</h3></div>
+            <table class="assignment-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Student</th>
+                        <th>Due Date</th>
+                        <th>Grade</th>
+                        <th>Remark Request</th>
+                        <th>Remark Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mark in marks if 'Week' in mark.assignment_name %}
+                    <tr>
+                        <td>{{ mark.assignment_name }}</td>
+                        <td>{{ mark.student.name }}</td>
+                        <td>{{ mark.due_date }}</td>
+                        <td>{{ mark.grade if mark.grade else 'Not graded' }}/100</td>
+                        <td>{{ mark.remark_request if mark.remark_request else 'None' }}</td>
+                        <td>{{ mark.remark_status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mark-type"><h3>Exams</h3></div>
+        <table class="assignment-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Student</th>
+                    <th>Date</th>
+                    <th>Grade</th>
+                    <th>Remark Request</th>
+                    <th>Remark Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mark in marks if 'Exam' in mark.assignment_name or 'Midterm' in mark.assignment_name %}
+                <tr>
+                    <td>{{ mark.assignment_name }}</td>
+                    <td>{{ mark.student.name }}</td>
+                    <td>{{ mark.due_date }}</td>
+                    <td>{{ mark.grade if mark.grade else 'Not graded' }}/100</td>
+                    <td>{{ mark.remark_request if mark.remark_request else 'None' }}</td>
+                    <td>{{ mark.remark_status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

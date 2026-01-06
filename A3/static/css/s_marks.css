@@ -1,0 +1,92 @@
+.h {
+    margin-left: 10px;
+}
+
+.confirm-message {
+    color: green;
+}
+
+.assignment-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-bottom: 2px rgb(67, 22, 93) solid;
+    border-radius: 8px;
+    margin: 25px 0;
+    font-size: 1em;
+    min-width: 600px;
+    margin-left: 25%;
+}
+
+.assignment-table thead tr {
+    background: #9030f0;
+    color: #ffffffff;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.assignment-table th,
+.assignment-table td {
+    padding: 12px 15px;
+}
+
+.assignment-table tbody tr:nth-child(even) {
+    background-color: #c8c6c6; /* Zebra striping */
+}
+
+.assignment-table tbody tr:nth-child(odd) {
+    background-color: #ffffffff; /* Zebra striping */
+}
+
+.mark-type {
+    background-color: #9030f0;
+    padding: 12px;
+    font-size: 1.5em;
+    color: white;
+}
+
+/* Flash message styles */
+.flash-success {
+    color: #ffffff;
+    background: #9030f0; /* Match your theme color */
+    padding: 10px;
+    margin: 10px 25%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.flash-error {
+    color: #ffffff;
+    background: #ff4444; /* Red for errors */
+    padding: 10px;
+    margin: 10px 25%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Style for the remark request form (already added, included for completeness) */
+.remark p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.input-field {
+    margin-right: 5px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.remark button {
+    background: #9030f0;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.remark button:hover {
+    background: #7a26d1; /* Slightly darker shade on hover */
+}

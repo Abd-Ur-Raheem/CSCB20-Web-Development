@@ -1,0 +1,44 @@
+{% extends "template.html" %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class = "home-page">
+    <div class="intro">
+        <h1>Welcome to CSCB20</h1>
+        <h2>Introduction to databases and web development</h2>
+    </div>
+    <div class = "general"><h1>General Info</h1></div>
+
+    <div class = "navi">
+        <ul>
+        <li>
+            <a href = "#">Course Contents ▾</a>
+            <ul class = "dropdown">
+                <li><a href = "{{ url_for('assignments') }}">Assignments</a></li>
+                <li><a href = "{{ url_for('labs') }}">Labs</a></li>
+                <li><a href = "{{ url_for('lecture') }}">Lecture Notes</a></li>
+            </ul>
+        </li>
+        
+        </ul>
+    </div>
+
+
+    <div class = "description_body">
+        <div class = "description">
+            <h2>Course Description:</h2>
+            <p>
+                A practical introduction to databases and Web app development. Databases: terminology and applications; creating, querying and updating databases; the entity-relationship model for database design. Web documents and applications: static and interactive documents; Web servers and dynamic server-generated content; Web application development and interface with databases.
+
+            </p>
+        </div>
+        <div class = "description">
+            <h2>Prerequisites:</h2>
+            <p>CSCA08 and some experience with Python, C or Java</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

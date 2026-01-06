@@ -1,0 +1,79 @@
+{% extends "template.html" %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/syllabus.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class = "syllabus-page">
+    <div class = "intro">
+        <h1>Syllabus</h1>
+    </div>
+
+
+    <div class = "body-syllabus">
+        <div class = "row">
+            <div class = "box">
+                <div class = "title">
+                    <h2>Course Description</h2>
+                </div>
+                <div class = "box-content">
+                    <p>This course provides a hands-on introduction to databases and web application development. You will gain both theoretical knowledge and practical skills to build a solid foundation in these areas.
+                    </p>
+                    <p>This is a great intro course for future software and web developers</p>
+                    <h4>Relational Algebra</h4>
+                    <h4>SQL</h4>
+                    <h4>Python Flask</h4>
+                    <h4>HTML</h4>
+                    <h4>CSS</h4>
+                    <h4>JavaScript</h4>
+                </div>
+            </div>
+
+            <div class = "box">
+                <div class = "title">
+                    <h2>Course content</h2>
+                </div>
+                <div class = "box-content">
+                    <h4>Databases
+
+                    </h4>
+                    <p>-Key terminology and practical applications
+                    </p>
+                    <p>-Creating, querying, and updating databases
+                    </p>
+                    <p>Designing databases using the entity-relationship model
+                    </p>
+                    <h4>Web Dev</h4>
+                    <p>Building static and interactive web documents
+                    </p>
+                    <p>Setting up web servers and generating dynamic, server-side content
+                    </p>
+                    <p>Developing web applications integrated with databases
+                    </p>
+                    <br>
+                </div>
+            </div>
+            <div class = "box">
+                <div class = "title">
+                    <h2>Mark Breakdown</h2>
+                </div>
+                <div class = "box-content">
+                    <h4>Assignments: 33%</h4>
+                    <p>-Assignment 1:8%</p>
+                    <p>-Assignment 2:10%</p>
+                    <p>-Assignment 3:15%</p>
+                    <h4>Mid-Term: 25%</h4>
+                    <p>-The mid-term exam will be held in-person during lecture time.</p>
+                    <p>-Tentative Date: February 28</p>
+                    <p>-Duration: 120 minutes</p>
+                    <h4>Tutorial Attendance: 2%</h4>
+                    <h4>Final Exam: 40%</h4>
+                    <p>-There will be one in-person final exam for the course.</p>
+                    <p>Note: You must score at least 35% on the final exam to pass the course.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

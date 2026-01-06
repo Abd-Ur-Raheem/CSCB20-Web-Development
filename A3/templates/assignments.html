@@ -1,0 +1,76 @@
+{% extends "template.html" %}
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/assignments.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class = "assignments-page">
+    <div class="intro">
+        <h1>Assignments</h1>
+    </div>
+
+
+    <div class="body-syllabus">
+        <div class="row">
+            <div class="box">
+                <div class="title">
+                    <h2>Assignment 1</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Due Date: 2025-02-11</h4>
+                    <p>Rundown: 
+
+                    </p>
+                    <p>In this assignment, you are a Data Analyst Intern for the SmartCity Initiative Team. The team is working on projects for Urban Connect 2.0, a next-generation smart city infrastructure system. Your supervisor has outlined some schemas and queries that need to be completed using relational algebra (RA) and SQL.</p>
+                    <p>In this assignment you will work in groups of 2-3 to provide relational algebra from tasks, write sql quesries from task, convert relational algebra to engligh, identify
+                        primary key/foreign key relation ships and revise the schema based on the given schema definitions.
+                    </p>
+                    <br>
+                    <a href="https://q.utoronto.ca/courses/372797/assignments/1471425">Full Breakdown</a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h4>Weight:8%</h4>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="title">
+                    <h2>Assignment 2</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Due Date: 2025-03-12</h4>
+                    <p>Rundown: 
+                    <p>In groups of 2-3, 
+                    </p>
+                    <h5> Part 1:</h5>
+                    <p>You will create a Flask web application that dynamically processes user input through different routes. Implement string manipulation, webresponse, palindrome detector and unicode emoji name generator</p>
+                    <h5> Part 2:</h5>
+                    <p>Create an optimal course website sole using your knowledge of HTML and CSS learned in 
+                        weeks 5-7. The website should be modern and aesthetic. It should feature dropdown menus, hover effects, animations/transitions, 
+                        darkmode styling along with a sticky header and a footer. This part also includes making mock-ups and user-stories</p>
+                    <a href="https://q.utoronto.ca/courses/372797/assignments/1481824">Full Breakdown</a>
+                    <h4>Weight:10%</h4>
+                </div>
+            </div>
+            <div class="box">
+                <div class="title">
+                    <h2>Assignment 3</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Due Date: 2025-03-12</h4>
+                    <p>Rundown: 
+                    <p>This assignment is not yet released but is a continuation of Assignment 2 which includes python flash, sql and storing data.
+
+                    </p>
+                    <p>                                         TBA                                                </p>
+                    <h4>Weight:15%</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

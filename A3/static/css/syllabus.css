@@ -1,0 +1,89 @@
+.syllabus-page .intro {
+    margin-top: 0px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(https://img.freepik.com/free-vector/backround-gradient-colorful-modern-design_677411-4248.jpg);
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.syllabus-page .intro h1 {
+    color: white;
+    font-size: 75px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    animation-duration: 2s;
+    animation-name: bigger;
+    animation-name: fadein;
+    animation-duration: 2s;
+}
+
+.syllabus-page .row {
+    padding-top: 4%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@keyframes slideup {
+    from {
+        transform: translateY(40px)
+    }
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.syllabus-page .box {
+    background-color: white;
+    border: 3px solid rgb(189, 189, 189);
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    box-shadow: 10px 10px 5px rgba(7, 7, 7, 0.274);
+    animation-name: slideup;
+    animation-duration: 2s;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+}
+
+.syllabus-page .title {
+    padding-left: 4%;
+    padding-right: 4%;
+    font-size: 20px;
+    border-radius: 25px;
+    height: fit-content;
+    max-width: 500px;
+    color: white;
+    background-color: rgb(102, 51, 143);
+}
+
+.syllabus-page .box-content {
+    padding-left: 3%;
+}
+
+.syllabus-page .box-content p {
+    padding-left: 4%;
+}
+
+.syllabus-page .box-content h4 {
+    background-color: rgb(223, 191, 245);
+    width: fit-content;
+    height: fit-content;
+    padding: 4%;
+    border-radius: 25px;
+}

@@ -1,0 +1,120 @@
+{% extends "template.html" %}
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/assignments.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="assignments-page">
+    <div class="intro">
+        <h1>Labs</h1>
+    </div>
+
+    <div class="body-syllabus">
+        <div class="row">
+            <div class="box">
+                <div class="title">
+                    <h2>Week 1</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>A quick speed-refresher of Python. We go over variables, functions, string methods, 
+                        lists, loops, and basic I/O. The material covered today will be especially relevant to those who have not taken one of A08, A48, or A20</p>
+                    <button onclick="location.href='static/docs/Tutorial Week 1.pdf';">Tutorial Work</button>
+                    <br>
+                    <br>
+                    <button onclick="location.href='static/docs/Tutorial Week 1.pdf';">Tutorial Soln</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="title">
+                    <h2>Week 2</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>Relational algebra. In this tutorial,
+                         we go over relational algebra and writing relational algebra to perform queries. We also introduce SQLite and basic SQL concepts.
+                    </p>
+                    <button onclick="location.href='static/docs/Tutorial Week 2-1.pdf';">Tutorial Work</button>
+                    <br>
+                    <br>
+                    <button onclick="location.href='static/docs/week02soln-updated.pdf';">Tutorial Soln</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="title">
+                    <h2>Week 3</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>For this week, we will be extracting actual data out of databases so you will be required
+                        to have SQLite in order to complete the lab. </p>
+                    <button onclick="location.href='static/docs/Tutorial 3-1.pdf';">Tutorial Work</button>
+                    <br>
+                    <br>
+                    <button onclick="location.href='static/docs/Tutorial 3-1.pdf';">Tutorial Soln</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="box">
+                <div class="title">
+                    <h2>Week 4</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>In this tutorial, you will learn about more SQL queries that include Views, Group By and brief introduction to HTML. Creating vuews and subqueries are the main focus of this week
+                    </p>
+                    <button onclick="location.href='static/docs/Tutorial 4-1.pdf';">Tutorial Work</button>
+                    <br>
+                    <br>
+                    <button>Tutorial Soln</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="title">
+                    <h2>Week 5</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>We will start learning the fundamentaks of HTML and CSS. Learn some CSS design elements and animation
+                    </p>
+                    <button onclick="location.href='static/docs/SQL-Subqueries (3).pdf';">Tutorial Work</button>
+                    <br>
+                    <br>
+                    <button onclick="location.href='static/docs/SQL-Subqueries (3).pdf';">Tutorial Soln</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            
+            <div class="box">
+                <div class="title">
+                    <h2>Week 6</h2>
+                </div>
+                <div class="box-content">
+                    <h4>Overview</h4>
+                    <p>Continuing on from last week with CSS and HTML. Practise uning CSS box model and flexbox. Learning more styling elements </p>
+                    <button onclick="location.href='static/docs/Tutorial Week 6-1.pdf';">Tutorial Work</button>
+                    <br>
+                    <br>
+                    <button onclick="location.href='static/docs/STutorial Week 6-1.pdf';">Tutorial Soln</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

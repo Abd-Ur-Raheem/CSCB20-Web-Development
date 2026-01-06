@@ -1,0 +1,68 @@
+{% extends "template.html" %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class = "courseteam-page">
+    <div class="intro">
+        <h1>Meet the Team</h1>
+    </div>
+
+
+    <div class="body-syllabus">
+        <div class="row">
+            <div class="box">
+                <div class="title">
+                    <h2>Instructor</h2>
+                </div>
+                <div class="box-content">
+                    <h4>-Proffessor: Purva Gawde</h4>
+                    <p>-Takes lectures on Fridays 9am-11am</p>
+                    <p>-Assistant Proffessor</p>
+                    <a href="purva.gawde@utotonto.ca">email:purva.gawde@utotonto.ca</a>
+                    <h4>Office hours: Monday 11am-12pm</h4>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="title">
+                    <h2>TA 1</h2>
+                </div>
+                <div class="box-content">
+                    <h4>TA: John Doe</h4>
+                    <p>-Tutorials on Tuesdays 1-3</p>
+                    <p>-3rd year student in computer science</p>
+                    <a href="#">email:John.doe@utotonto.ca</a>
+                    <h4>Office hours: Monday 1pm-2pm</h4>
+                </div>
+            </div>
+            <div class="box">
+                <div class="title">
+                    <h2>TA 2</h2>
+                </div>
+                <div class="box-content">
+                    <h4>TA: Jane Doe</h4>
+                    <p>-Tutorials on Wednesday 3-4</p>
+                    <p>-2dd year student in stats</p>
+                    <a href="#">email:Jane.doe@utotonto.ca</a>
+                    <h4>Office hours: Thursday 10am-11am</h4>
+                </div>
+            </div>
+            <div class="box">
+                <div class="title">
+                    <h2>TA 3</h2>
+                </div>
+                <div class="box-content">
+                    <h4>TA: Jacop Doe</h4>
+                    <p>-Tutorials on Wednesday 3-4</p>
+                    <p>-4th year student in Computer Science</p>
+                    <a href="#">email:Jacob.doe@utotonto.ca</a>
+                    <h4>Office hours: Thursday 10am-11am</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="whole">
+    <form action="{{ url_for('index') }}" method="GET" class="login-box">
+        <div class="login-header">
+            <header>Logout Successful!</header>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="input-submit">
+            <button class="submit-btn" id="logout-b" type="submit"></button>
+            <label for="logout-b">Return to Home</label>
+        </div>
+    </form>
+</div>
+{% endblock %}

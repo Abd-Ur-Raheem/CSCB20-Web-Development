@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/headfoot.css') }}">
+    {% block extra_styles %}
+    {% endblock %}
+    {% if pagename %}
+        <title>{{ pagename }}</title>
+    {% else %}
+        <title>CSCB20</title>
+    {% endif %}
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="contents">
+        <div class="icon"><h2>CSCB20</h2></div>
+        <ul>
+            {% if not session.logged_in %}
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li class="syllabus"><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% else %}
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('syllabus') }}">Syllabus</a></li>
+                <li><a href="{{ url_for('assignments') }}">Assignments</a></li>
+                <li><a href="{{ url_for('labs') }}">Labs</a></li>
+                <li><a href="{{ url_for('lecture') }}">Lecture Notes</a></li>
+                <li><a href="https://piazza.com/class/lzu0yiltalh4fi">Piazza</a></li>
+                <li><a href="https://markus2.utsc.utoronto.ca/?locale=en">Markus</a></li>
+                <li><a href="{{ url_for('anon') }}">Anon Feedback</a></li>
+                <li><a href="{{ url_for('team') }}">Course Team</a></li>
+                {% if current_user %}
+                    {% if current_user.type == 'instructor' %}
+                        <li><a href="{{ url_for('view_feedback') }}">View Feedback</a></li>
+                        <li><a href="{{ url_for('instructor_marks') }}">Instructor Marks</a></li>
+                        <li><a href="{{ url_for('view_remarks') }}">View Remark Requests</a></li>
+                    {% elif current_user.type == 'student' %}
+                        <li><a href="{{ url_for('s_marks') }}">Student Marks</a></li>
+                    {% endif %}
+                {% endif %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <div class="footer-section">
+        <div class="footer">
+            <div class="footer-title">
+                <h1 class="b20">CSCB20</h1>
+                <h1 class="name">Intro to Databases & Web Apps</h1>
+            </div>
+            <div><h3>Designed by Tahmeed Rahman</h3></div>
+        </div>
+        <div class="footer">
+            <div><h3>For more information visit:</h3></div>
+            <a href="https://web.cs.toronto.edu/" target="_blank">Department of Computer Science at UofT</a>
+        </div>
+    </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92a09e293b61afc6',t:'MTc0MzU5OTk2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
